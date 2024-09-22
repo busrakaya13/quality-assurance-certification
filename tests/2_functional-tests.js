@@ -82,8 +82,9 @@ Browser.site= "https://3000-freecodecam-boilerplate-anlmfkvgyz0.ws-us116.gitpod.
 const browser = new Browser();
 
 suite('Functional Tests with Zombie.js', function (done) {
-  browser.visit('/', done);
-  this.timeout(10000)
+  suiteSetup(function(done) { // Remember, web interactions are asynchronous !!
+    return browser.visit('/', done);  // Browser asynchronous operations take a callback
+  });
   suite('Headless browser', function () {
     test('should have a working "site" property', function() {
       assert.isNotNull(browser.site);
