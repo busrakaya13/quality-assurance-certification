@@ -78,11 +78,12 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
+Browser.site= "https://3000-freecodecam-boilerplate-anlmfkvgyz0.ws-us116.gitpod.io"
+const browser = new Browser();
 
-suite('Functional Tests with Zombie.js', function () {
-  this.timeout(5000);
-
-
+suite('Functional Tests with Zombie.js', function (done) {
+  browser.visit('/', done);
+  this.timeout(5000)
 
   suite('Headless browser', function () {
     test('should have a working "site" property', function() {
