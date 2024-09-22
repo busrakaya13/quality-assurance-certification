@@ -26,10 +26,10 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .get('/hello?name=busra')
+        .get('/hello?name=xy_z')
         .end(function (err, res) {
           assert.equal(res.status, 200);
-          assert.equal(res.text, 'hello busra');
+          assert.equal(res.text, 'hello xy_z');
           done();
         });
     });
@@ -39,7 +39,6 @@ suite('Functional Tests', function () {
         .request(server)
         .keepOpen()
         .put('/travellers')
-        .type('application/json')
         .send({
           "name": "Cristoforo",
           "surname": "Colombo"
