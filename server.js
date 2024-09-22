@@ -1,9 +1,14 @@
 'use strict'
 const express = require('express');
 const app = express();
+
 app.set('view engine', 'pug');
 app.set('views', './views/pug');
-
+//fccTesting(app); // For fCC testing purposes
+app.route('/').get((req, res) => {
+  // Change the response to render the Pug template
+  res.render('index');
+});
 const cors = require('cors');
 const runner = require('./test-runner');
 
