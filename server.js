@@ -1,14 +1,17 @@
 'use strict'
 const express = require('express');
+///const myDB = require('./connection');
+///const fccTesting = require('./freeCodeCamp/fcctesting.js');
+
 const app = express();
-const path = require('path');
 
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views/pug'));
+app.set('views', './views/pug');
+//fccTesting(app); // For fCC testing purposes
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//fccTesting(app); // For fCC testing purposes
+
 app.route('/').get((req, res) => {
   // Change the response to render the Pug template
   res.render('index');
