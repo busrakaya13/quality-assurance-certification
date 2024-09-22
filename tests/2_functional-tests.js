@@ -84,9 +84,6 @@ const browser = new Browser();
 suite('Functional Tests with Zombie.js', function (done) {
   browser.visit('/', done);
   this.timeout(10000)
-
-
-
   suite('Headless browser', function () {
     test('should have a working "site" property', function() {
       assert.isNotNull(browser.site);
