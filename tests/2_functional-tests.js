@@ -39,6 +39,7 @@ suite('Functional Tests', function () {
         .request(server)
         .keepOpen()
         .put('/travellers')
+        .type('application/json')
         .send({
           "name": "Cristoforo",
           "surname": "Colombo"
