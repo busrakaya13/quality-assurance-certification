@@ -56,8 +56,22 @@ suite('Functional Tests', function () {
     });
     // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
-      assert.fail();
+      chai
+      .request(server)
+      .keepOpen()
+      .put('/travellers')
+      .type('application/json')
+      .send({
+        "name": "Giovanni",
+        "surname": "da Verrazzano",
+        "dates": [1785 - 1835]
+      })
 
+      .end(function (err, res) {
+        assert.equal(res.status,200);
+        assert.equal(res.type,'application/json');
+        assert.equal(res.body.name,'Giovanni')
+        assert.equal(res.body.surname,'da Verrazzano')
       done();
     });
   });
@@ -90,4 +104,5 @@ suite('Functional Tests with Zombie.js', function () {
       done();
     });
   });
+});
 });
