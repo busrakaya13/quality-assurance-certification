@@ -98,7 +98,7 @@ suite('Functional Tests with Zombie.js', function (done) {
     test('Submit the surname "Colombo" in the HTML form', function (done) {
       browser.fill('surname', 'Colombo').then(() => {
         browser.pressButton('submit', () => {
-          browser.assert.equal(200);
+          browser.assert.success();
           browser.assert.text('span#name', 'Cristoforo');
           browser.assert.text('span#surname', 'Colombo');
           browser.assert.elements('span#dates', 1);
@@ -110,7 +110,7 @@ suite('Functional Tests with Zombie.js', function (done) {
     test('Submit the surname "Vespucci" in the HTML form', function (done) {
       browser.fill('surname', 'Vespucci').then(() => {
         browser.pressButton('submit', () => {
-          browser.assert.equal(200);
+          browser.assert.success();
           browser.assert.text('span#name', 'Amerigo');
           browser.assert.text('span#surname', 'Vespucci');
           browser.assert.elements('span#dates', 1);
