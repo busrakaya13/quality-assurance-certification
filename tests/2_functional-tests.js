@@ -42,12 +42,13 @@ suite('Functional Tests', function () {
         .type('application/json')
         .send({
           "name": "Cristoforo",
-          "surname": "Colombo"
+          "surname": "Colombo",
+          "dates": [1789 - 1826]
         })
 
         .end(function (err, res) {
           assert.equal(res.status,200);
-
+          assert.equal(res.type,'application/json');
           done();
         });
     });
